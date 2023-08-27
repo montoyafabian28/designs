@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { DesignForm } from "../components/DesignForm";
+---
+
+<Layout title="Nuevo Diseño">
+  <header class="container mx-16">
+    <h1 class="text-center text-4xl font-Gilroy-Bold">Sube tu Nuevo Diseño</h1>
+    <hr class="mt-5"/>
+  </header>
+  <main class="container mt-5 mx-16">
+    <DesignForm client:load/>
+  </main>
+</Layout>

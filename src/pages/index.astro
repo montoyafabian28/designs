@@ -1,0 +1,23 @@
+---
+import { Categories } from '../components/Categories.jsx';
+import HeroSection from '../components/HeroSection.astro';
+import Layout from '../layouts/Layout.astro';
+import { CategoryDesigns } from '../components/CategoryDesigns.jsx';
+
+
+---
+
+<Layout title="Welcome to Astro.">
+	<section class="relative font-Gilroy-Regular">
+		<img src="/bg2.jpg" class="z-0 w-full h-[512px] object-cover" />
+		<div class="absolute top-0 px-6 py-10 w-full flex flex-col gap-5 z-10">
+			<div class="px-20">
+				<Categories client:load />
+			</div>
+			<HeroSection />
+		</div>
+	</section>
+	<main class="container mx-16 mt-5 bg-">
+		<CategoryDesigns client:load/>
+	</main>
+</Layout>	
