@@ -18,7 +18,7 @@ export function Categories () {
 
 
   return (
-    <ul className="flex items-center gap-3">
+    <ul className="flex items-center justify-center gap-3">
     {categories.map((category) => (
       <li key={category?.id}>
         <button className={`${currentCategory?.id === category?.id 
