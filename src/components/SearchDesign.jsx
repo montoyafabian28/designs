@@ -20,7 +20,7 @@ export function SearchDesign () {
       <input type="text" 
         id="search"
         name="search"
-        placeholder="Buscar..." 
+        placeholder="Buscar diseño..." 
         className="rounded-r-full w-[520px] focus:outline-none" />
       </div>
     </form>
