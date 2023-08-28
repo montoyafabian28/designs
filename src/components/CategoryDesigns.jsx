@@ -30,7 +30,7 @@ export function CategoryDesigns () {
   }, [designs, query])
 
   return (
-    <div className="grid grid-cols-4 gap-y-10 gap-x-2">
+    <div className="grid grid-cols-4 gap-y-14 gap-x-8">
       {filteredDesigns.map((design) => (
         <div key={design.id}>
           <DesignCard design={design} />

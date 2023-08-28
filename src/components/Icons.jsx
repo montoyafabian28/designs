@@ -27,10 +27,10 @@ export const SearchIcon = () => (
   </svg>
 )
 
-export const LikeIcon = (props) => {
+export const LikeIcon = ({liked}) => {
   return (
-    <svg width="1.2em" height="1.2em" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path fill="none" stroke="#000000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z"></path>
+    <svg width="1.2em" height="1.2em" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path fill={`${liked ? '#ec4899' : 'none'}`} stroke={`${liked ? '' : '#000000'}`} strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z"></path>
     </svg>
   )
 }
@@ -68,9 +68,12 @@ export const InfoIcon = (props) => {
 
 export const HeartIcon = (props) => {
   return (
-    <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <path fill="#d946ef" d="M12 10.375a4.375 4.375 0 0 0-8.75 0c0 1.127.159 2.784 1.75 4.375L12 20s5.409-3.659 7-5.25s1.75-3.248 1.75-4.375a4.375 4.375 0 0 0-8.75 0"></path>
-    </svg>
+    <svg width="16" height="16" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <mask id="ipSLike0">
+        <path fill="#fff" stroke="#fff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.987 10.987 0 0 0 15 8Z"></path>
+    </mask>
+    <path fill="#6b7280" d="M0 0h48v48H0z" mask="url(#ipSLike0)"></path>
+</svg>
   )
 }
 
@@ -78,6 +81,14 @@ export const MailIcon = (props) => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path fill="#ffffff" d="M4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.588 1.413T20 20H4Zm8-7l8-5V6l-8 5l-8-5v2l8 5Z"></path>
+</svg>
+  )
+}
+
+export const ViewIcon = (props) => {
+  return (
+    <svg width="16" height="16" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path fill="#6b7280" d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8a4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4a2 2 0 0 1 0 4z"></path>
 </svg>
   )
 }

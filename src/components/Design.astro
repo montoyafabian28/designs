@@ -1,49 +1,46 @@
 ---
 import { getDesign } from "../services/supabase"
-import { LikeIcon, BookmarkIcon, CommentIcon, ShareIcon, InfoIcon, MailIcon } from "../components/Icons"
+import { BookmarkIcon, CommentIcon, ShareIcon, InfoIcon, MailIcon } from "../components/Icons"
+import { LikeButton } from "./LikeButton";
 const { designId } = Astro.params
 
 const design = await getDesign(designId)
 ---
-<div class="rounded-lg border mb-10 border-gray-300 shadow-2xl py-6 mx-16"id="main-dialog">
-  <header class="container font-Gilroy-Regular">
-    <div class="px-10 flex justify-between">
-      <div class="flex flex-col gap-2">
-        <div class="flex gap-3 items-center">
-          <img class="rounded-full h-8 w-8 border border-gray-500" src={design.author.avatar} />
-          <h2 class="font-Gilroy-Bold text-lg">{design.title}</h2>
-        </div>
-        <div class="text-sm flex gap-2 justify-center">
-          <span class="hover:cursor-pointer">{design.author.name}</span> -
-          <span class="hover:cursor-pointer">Seguir</span> -
-          <span class="hover:cursor-pointer">Contactar</span>
-        </div>
+<header class="container font-Gilroy-Regular">
+  <div class="px-10 flex justify-between">
+    <div class="flex flex-col gap-2">
+      <div class="flex gap-3 items-center">
+        <img class="rounded-full h-8 w-8 border border-gray-500" src={design.author.avatar} />
+        <h2 class="font-Gilroy-Bold text-lg">{design.title}</h2>
       </div>
-      <div class="flex flex-grow-0 justify-center items-center gap-2">
-        <div class="hover:scale-105 transition-transform ease-in rounded-xl border border-gray-300 px-3 py-3 hover:cursor-pointer">
-          <LikeIcon />
-        </div>
-        <div  class="hover:scale-105 transition-transform ease-in rounded-xl border border-gray-300 px-3 py-3 hover:cursor-pointer">
-          <BookmarkIcon />
-        </div>
+      <div class="text-sm flex gap-2 justify-center">
+        <span class="hover:cursor-pointer">{design.author.name}</span> -
+        <span class="hover:cursor-pointer">Seguir</span> -
+        <span class="hover:cursor-pointer">Contactar</span>
       </div>
     </div>
-  </header>
-  <main class="container mt-10">
-    <div class="flex flex-col gap-6 items-center">
-      <img src={design.src} alt={design.name} class="max-w-full" />
-      <p class="text-lg font-Gilroy-Regular max-w-[60ch]">{design.description}</p>
+    <div class="flex flex-grow-0 justify-center items-center gap-2">
+      <LikeButton client:load/>
+      <div  class="hover:scale-105 transition-transform ease-in rounded-xl border border-gray-300 px-3 py-3 hover:cursor-pointer">
+        <BookmarkIcon />
+      </div>
     </div>
-    <hr class="mt-10"/>
-    <section class="flex justify-center gap-3 flex-col items-center mt-10">
-      <p class="font-Gilroy-Bold">Contacta al Diseñador</p>
-      <button class="font-Gilroy-Bold hover:cursor-pointer rounded-lg bg-pink-500 py-3 px-2 text-white flex justify-center gap-2 items-center ">
-        <MailIcon />
-        Contáctame
-      </button>
-    </section>
-  </main>
-</di>
+  </div>
+</header>
+<main class="container mt-10">
+  <div class="flex flex-col gap-6 items-center mx-auto max-w-[90%]">
+    <img src={design.src} alt={design.name} class="max-w-full rounded-xl" />
+    <p class="text-lg font-Gilroy-Regular max-w-[60ch]">{design.description}</p>
+  </div>
+  <hr class="mt-10"/>
+  <section class="flex justify-center gap-3 flex-col items-center mt-10">
+    <p class="font-Gilroy-Bold">Contacta al Diseñador</p>
+    <button class="font-Gilroy-Bold hover:cursor-pointer rounded-lg bg-pink-500 py-3 px-2 text-white flex justify-center gap-2 items-center ">
+      <MailIcon />
+      Contáctame
+    </button>
+  </section>
+</main>
 
 <aside class="top-52 right-6 bg-white absolute">
   <ul class="flex flex-col gap-3 justify-center py-4 rounded-lg border border-gray-300 shadow-xl px-5">
@@ -58,12 +55,3 @@ const design = await getDesign(designId)
     </li>
   </ul>
 </aside>
-
-<style>
-  #main-dialog::backdrop {
-    opacity: 0.5;
-  }
-  body {
-    position: relative;
-  }
-</style>
