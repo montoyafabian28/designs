@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^2.3.2",
     "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/vercel": "^5.0.2",
     "@nanostores/react": "^0.7.1",
     "@supabase/supabase-js": "^2.33.1",
     "@types/react": "^18.0.21",
